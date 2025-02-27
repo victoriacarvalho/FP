@@ -17,6 +17,29 @@ const seedRestaurant = async (tx: any) => {
   });
 };
 
+const seedBatataRealRestaurant = async (tx: any) => {
+  return await tx.restaurant.create({
+    data: {
+      name: "BATATA REAL",
+      slug: "batata-real",
+      description: "Torres de batata e fritas especiais",
+      avatarImageUrl: "https://example.com/batata-real-avatar.jpg",
+      coverImageUrl: "https://example.com/batata-real-cover.jpg",
+    },
+  });
+};
+const seedAleanzzaRestaurant = async (tx: any) => {
+  return await tx.restaurant.create({
+    data: {
+      name: "Aleanzza",
+      slug: "Aleanzza",
+      description: "Pizzas artesanais e entradinhas deliciosas",
+      avatarImageUrl: "https://example.com/rispetta-la-pizza-avatar.jpg",
+      coverImageUrl: "https://example.com/rispetta-la-pizza-cover.jpg",
+    },
+  });
+};
+
 const seedRefriCategory = async (tx: any, restaurantId: string) => {
   const refriCategory = await tx.menuCategory.create({
     data: {
@@ -931,6 +954,984 @@ const seedDrinksCategory = async (tx: any, restaurantId: string) => {
   });
 };
 
+const seedBatataRealCategories = async (tx: any, restaurantId: string) => {
+  // Categoria: Torres de Batata
+  const torresCategory = await tx.menuCategory.create({
+    data: {
+      name: "Torres de Batata",
+      restaurantId: restaurantId,
+    },
+  });
+
+  await tx.product.createMany({
+    data: [
+      {
+        name: "Torre de Batata P - Bacon, Requeijão, Queijo Cheddar, Mussarela",
+        description:
+          "Torre de batata com bacon, requeijão, queijo cheddar e mussarela.",
+        price: 69.9,
+        imageUrl: "https://example.com/torre-bacon.jpg",
+        menuCategoryId: torresCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Torre de Batata P - Calabresa, Requeijão, Queijo Cheddar",
+        description:
+          "Torre de batata com calabresa, requeijão e queijo cheddar.",
+        price: 79.9,
+        imageUrl: "https://example.com/torre-calabresa.jpg",
+        menuCategoryId: torresCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Torre de Batata P - Costela com Requeijão, Queijo e Molho Especial",
+        description:
+          "Torre de batata com costela, requeijão, queijo e molho especial.",
+        price: 79.9,
+        imageUrl: "https://example.com/torre-costela.jpg",
+        menuCategoryId: torresCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Torre de Batata 1KG - Bacon, Requeijão, Queijo Cheddar, Mussarela",
+        description:
+          "Torre de batata com bacon, requeijão, queijo cheddar e mussarela.",
+        price: 79.9,
+        imageUrl: "https://example.com/torre-bacon-3kg.jpg",
+        menuCategoryId: torresCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Torre de Batata 1KG - Calabresa, Requeijão, Queijo Cheddar",
+        description:
+          "Torre de batata com calabresa, requeijão e queijo cheddar.",
+        price: 89.9,
+        imageUrl: "https://example.com/torre-calabresa-3kg.jpg",
+        menuCategoryId: torresCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Torre de Batata 1KG - Costela com Requeijão, Queijo e Molho Especial",
+        description:
+          "Torre de batata com costela, requeijão, queijo e molho especial.",
+        price: 89.9,
+        imageUrl: "https://example.com/torre-costela-3kg.jpg",
+        menuCategoryId: torresCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Torre de Batata 2KG - Bacon, Requeijão, Queijo Cheddar, Mussarela",
+        description:
+          "Torre de batata com bacon, requeijão, queijo cheddar e mussarela.",
+        price: 129.9,
+        imageUrl: "https://example.com/torre-bacon-5kg.jpg",
+        menuCategoryId: torresCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Torre de Batata 2KG - Calabresa, Requeijão, Queijo Cheddar",
+        description:
+          "Torre de batata com calabresa, requeijão e queijo cheddar.",
+        price: 149.9,
+        imageUrl: "https://example.com/torre-calabresa-5kg.jpg",
+        menuCategoryId: torresCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Torre de Batata 2KG - Costela com Requeijão, Queijo e Molho Especial",
+        description:
+          "Torre de batata com costela, requeijão, queijo e molho especial.",
+        price: 149.9,
+        imageUrl: "https://example.com/torre-costela-5kg.jpg",
+        menuCategoryId: torresCategory.id,
+        restaurantId: restaurantId,
+      },
+    ],
+  });
+
+  // Categoria: Batata Cone
+  const batataConeCategory = await tx.menuCategory.create({
+    data: {
+      name: "Batata Cone",
+      restaurantId: restaurantId,
+    },
+  });
+
+  await tx.product.createMany({
+    data: [
+      {
+        name: "Batata Cone P",
+        description: "Batata cone tamanho P.",
+        price: 15.9,
+        imageUrl: "https://example.com/batata-cone-tradicional.jpg",
+        menuCategoryId: batataConeCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Cone M",
+        description: "Batata tamanho M.",
+        price: 19.9,
+        imageUrl: "https://example.com/batata-cone-bacon.jpg",
+        menuCategoryId: batataConeCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Cone G",
+        description: "Batata cone tamanho G.",
+        price: 25.9,
+        imageUrl: "https://example.com/batata-cone-calabresa.jpg",
+        menuCategoryId: batataConeCategory.id,
+        restaurantId: restaurantId,
+      },
+    ],
+  });
+
+  // Categoria: Batata Chips
+  const batataChipsCategory = await tx.menuCategory.create({
+    data: {
+      name: "Batata Chips",
+      restaurantId: restaurantId,
+    },
+  });
+
+  await tx.product.createMany({
+    data: [
+      {
+        name: "Batata Chips P",
+        description: "Batata chips tamanho P.",
+        price: 13.9,
+        imageUrl: "https://example.com/batata-chips-tradicional.jpg",
+        menuCategoryId: batataChipsCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Chips M",
+        description: "Batata chips tamanho M.",
+        price: 19.9,
+        imageUrl: "https://example.com/batata-chips-bacon.jpg",
+        menuCategoryId: batataChipsCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Chips G",
+        description: "Batata chips tamanho G.",
+        price: 25.9,
+        imageUrl: "https://example.com/batata-chips-calabresa.jpg",
+        menuCategoryId: batataChipsCategory.id,
+        restaurantId: restaurantId,
+      },
+    ],
+  });
+
+  // Categoria: Batata's Recheadas
+  const batataRecheadaCategory = await tx.menuCategory.create({
+    data: {
+      name: "Batata's Recheadas",
+      restaurantId: restaurantId,
+    },
+  });
+
+  await tx.product.createMany({
+    data: [
+      {
+        name: "Batata Recheada Bacon com Alho G",
+        description: "Batata recheada com bacon e alho tamanho G.",
+        price: 35.9,
+        imageUrl: "https://example.com/batata-recheada-bacon.jpg",
+        menuCategoryId: batataRecheadaCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Recheada Calabresa G",
+        description: "Batata recheada com calabresa tamanho G.",
+        price: 39.9,
+        imageUrl: "https://example.com/batata-recheada-calabresa.jpg",
+        menuCategoryId: batataRecheadaCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Recheada Frango G",
+        description: "Batata recheada com frango tamanho G.",
+        price: 39.9,
+        imageUrl: "https://example.com/batata-recheada-frango.jpg",
+        menuCategoryId: batataRecheadaCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Recheada Alho Poró com Palmito G",
+        description: "Batata recheada com alho poró e palmito tamanho G.",
+        price: 39.9,
+        imageUrl: "https://example.com/batata-recheada-alho-poro.jpg",
+        menuCategoryId: batataRecheadaCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Recheada Carne Seca G",
+        description: "Batata recheada com carne seca tamanho G.",
+        price: 39.9,
+        imageUrl: "https://example.com/batata-recheada-carne-seca.jpg",
+        menuCategoryId: batataRecheadaCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Recheada Costela G",
+        description: "Batata recheada com costela tamanho G.",
+        price: 39.9,
+        imageUrl: "https://example.com/batata-recheada-costela.jpg",
+        menuCategoryId: batataRecheadaCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Recheada Bacon com Alho",
+        description: "Batata recheada com bacon e alho porção individual.",
+        price: 25.9,
+        imageUrl: "https://example.com/batata-recheada-bacon.jpg",
+        menuCategoryId: batataRecheadaCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Recheada Calabresa",
+        description: "Batata recheada com calabresa porção individual.",
+        price: 29.9,
+        imageUrl: "https://example.com/batata-recheada-calabresa.jpg",
+        menuCategoryId: batataRecheadaCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Recheada Frango",
+        description: "Batata recheada com frango porção individual.",
+        price: 29.9,
+        imageUrl: "https://example.com/batata-recheada-frango.jpg",
+        menuCategoryId: batataRecheadaCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Recheada Alho Poró com Palmito",
+        description:
+          "Batata recheada com alho poró e palmito porção individual.",
+        price: 29.9,
+        imageUrl: "https://example.com/batata-recheada-alho-poro.jpg",
+        menuCategoryId: batataRecheadaCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Recheada Carne Seca",
+        description: "Batata recheada com carne seca porção individual.",
+        price: 29.9,
+        imageUrl: "https://example.com/batata-recheada-carne-seca.jpg",
+        menuCategoryId: batataRecheadaCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Batata Recheada Costela",
+        description: "Batata recheada com costela porção individual.",
+        price: 29.9,
+        imageUrl: "https://example.com/batata-recheada-costela.jpg",
+        menuCategoryId: batataRecheadaCategory.id,
+        restaurantId: restaurantId,
+      },
+    ],
+  });
+
+  // Categoria: Monte sua Fritas
+  const monteSuaFritasCategory = await tx.menuCategory.create({
+    data: {
+      name: "Monte sua Fritas",
+      restaurantId: restaurantId,
+    },
+  });
+
+  await tx.product.createMany({
+    data: [
+      {
+        name: "Fritas Tradicional 300G",
+        description: "Fritas tradicionais 300g.",
+        price: 29.9,
+        imageUrl: "https://example.com/fritas-tradicional-200g.jpg",
+        menuCategoryId: monteSuaFritasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Fritas Tradicional 500G",
+        description: "Fritas tradicionais 500g.",
+        price: 39.9,
+        imageUrl: "https://example.com/fritas-tradicional-500g.jpg",
+        menuCategoryId: monteSuaFritasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Fritas Tradicional 1KG",
+        description: "Fritas tradicionais 1kg.",
+        price: 59.9,
+        imageUrl: "https://example.com/fritas-tradicional-1kg.jpg",
+        menuCategoryId: monteSuaFritasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Fritas Rústica/Picante 300G",
+        description: "Fritas rústicas/picantes 200g.",
+        price: 29.9,
+        imageUrl: "https://example.com/fritas-rustica-200g.jpg",
+        menuCategoryId: monteSuaFritasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Fritas Rústica/Picante 500G",
+        description: "Fritas rústicas/picantes 500g.",
+        price: 39.9,
+        imageUrl: "https://example.com/fritas-rustica-500g.jpg",
+        menuCategoryId: monteSuaFritasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Fritas Rústica/Picante 1KG",
+        description: "Fritas rústicas/picantes 1kg.",
+        price: 59.9,
+        imageUrl: "https://example.com/fritas-rustica-1kg.jpg",
+        menuCategoryId: monteSuaFritasCategory.id,
+        restaurantId: restaurantId,
+      },
+    ],
+  });
+
+  // Categoria: Acréscimos
+  const acrescimosCategory = await tx.menuCategory.create({
+    data: {
+      name: "Acréscimos",
+      restaurantId: restaurantId,
+    },
+  });
+
+  await tx.product.createMany({
+    data: [
+      {
+        name: "Bacon",
+        description: "Acréscimo de bacon.",
+        price: 2.0,
+        imageUrl: "https://example.com/acrescimo-cheddar.jpg",
+        menuCategoryId: acrescimosCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Queijo",
+        description: "Acréscimo de queijo.",
+        price: 2.0,
+        imageUrl: "https://example.com/acrescimo-queijo.jpg",
+        menuCategoryId: acrescimosCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Catupiry",
+        description: "Acréscimo de catupiry.",
+        price: 3.0,
+        imageUrl: "https://example.com/acrescimo-catupiry.jpg",
+        menuCategoryId: acrescimosCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Cheddar",
+        description: "Acréscimo de cheddar.",
+        price: 3.0,
+        imageUrl: "https://example.com/acrescimo-cheddar.jpg",
+        menuCategoryId: acrescimosCategory.id,
+        restaurantId: restaurantId,
+      },
+    ],
+  });
+};
+
+const seedAleanzzaCategories = async (tx: any, restaurantId: string) => {
+  // Categoria: Entradinhas
+  const entradinhasCategory = await tx.menuCategory.create({
+    data: {
+      name: "Entradinhas",
+      restaurantId: restaurantId,
+    },
+  });
+
+  await tx.product.createMany({
+    data: [
+      {
+        name: "Alezzitos de Costela com Catupiry - Porção PP",
+        description: "Alezzitos de costela com catupiry, porção mini.",
+        price: 30.9,
+        imageUrl: "https://example.com/alezzitos-costela-catupiry-pp.jpg",
+        menuCategoryId: entradinhasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alezzitos de Costela com Catupiry - Porção P",
+        description: "Alezzitos de costela com catupiry, porção pequena.",
+        price: 57.9,
+        imageUrl: "https://example.com/alezzitos-costela-catupiry-p.jpg",
+        menuCategoryId: entradinhasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alezzitos de Costela com Catupiry - Porção M",
+        description: "Alezzitos de costela com catupiry, porção média.",
+        price: 67.9,
+        imageUrl: "https://example.com/alezzitos-costela-catupiry-m.jpg",
+        menuCategoryId: entradinhasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alezzitos de Costela com Catupiry - Porção G",
+        description: "Alezzitos de costela com catupiry, porção grande.",
+        price: 77.9,
+        imageUrl: "https://example.com/alezzitos-costela-catupiry-g.jpg",
+        menuCategoryId: entradinhasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alezzitos de Frango com Catupiry - Porção PP",
+        description: "Alezzitos de frango com catupiry, porção mini.",
+        price: 20.9,
+        imageUrl: "https://example.com/alezzitos-frango-catupiry-pp.jpg",
+        menuCategoryId: entradinhasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alezzitos de Frango com Catupiry - Porção P",
+        description: "Alezzitos de frango com catupiry, porção pequena.",
+        price: 46.9,
+        imageUrl: "https://example.com/alezzitos-frango-catupiry-p.jpg",
+        menuCategoryId: entradinhasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alezzitos de Frango com Catupiry - Porção M",
+        description: "Alezzitos de frango com catupiry, porção média.",
+        price: 56.9,
+        imageUrl: "https://example.com/alezzitos-frango-catupiry-m.jpg",
+        menuCategoryId: entradinhasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alezzitos de Frango com Catupiry - Porção G",
+        description: "Alezzitos de frango com catupiry, porção grande.",
+        price: 67.9,
+        imageUrl: "https://example.com/alezzitos-frango-catupiry-g.jpg",
+        menuCategoryId: entradinhasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alezzitos de Presunto e Queijo - Porção M",
+        description: "Alezzitos de presunto e queijo, porção média.",
+        price: 56.9,
+        imageUrl: "https://example.com/alezzitos-presunto-queijo-m.jpg",
+        menuCategoryId: entradinhasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alezzitos de Presunto e Queijo - Porção P",
+        description: "Alezzitos de presunto e queijo, porção pequena.",
+        price: 46.9,
+        imageUrl: "https://example.com/alezzitos-presunto-queijo-p.jpg",
+        menuCategoryId: entradinhasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alezzitos de Presunto e Queijo - Porção PP",
+        description: "Alezzitos de presunto e queijo, porção mini.",
+        price: 20.9,
+        imageUrl: "https://example.com/alezzitos-presunto-queijo-pp.jpg",
+        menuCategoryId: entradinhasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alezzitos de Presunto e Queijo - Porção G",
+        description: "Alezzitos de presunto e queijo, porção grande.",
+        price: 67.9,
+        imageUrl: "https://example.com/alezzitos-presunto-queijo-g.jpg",
+        menuCategoryId: entradinhasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alezzitos de Mix de Sabores",
+        description: "Mix de até 2 sabores de Alezzitos. Consulte o valor.",
+        price: 0.0, // Valor a ser consultado
+        imageUrl: "https://example.com/alezzitos-mix.jpg",
+        menuCategoryId: entradinhasCategory.id,
+        restaurantId: restaurantId,
+      },
+    ],
+  });
+
+  // Categoria: Combos
+  const combosCategory = await tx.menuCategory.create({
+    data: {
+      name: "Combos",
+      restaurantId: restaurantId,
+    },
+  });
+
+  await tx.product.createMany({
+    data: [
+      {
+        name: "Combo 1 Super Fatia + 1 Mini Porção de Alezzitos",
+        description:
+          "1 super fatia de pizza de 16,90 e 1 tira pequena de Alezzitos.",
+        price: 29.9,
+        imageUrl: "https://example.com/combo-super-fatia-alezzitos.jpg",
+        menuCategoryId: combosCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Combo 1 Super Fatia + 1 Mini Porção de Alezzitos",
+        description:
+          "1 super fatia de pizza de 18,90 e 1 tira pequena de Alezzitos.",
+        price: 32.9,
+        imageUrl: "https://example.com/combo-super-fatia-alezzitos-2.jpg",
+        menuCategoryId: combosCategory.id,
+        restaurantId: restaurantId,
+      },
+    ],
+  });
+
+  // Categoria: Pizzas
+  const pizzasCategory = await tx.menuCategory.create({
+    data: {
+      name: "Pizzas",
+      restaurantId: restaurantId,
+    },
+  });
+
+  await tx.product.createMany({
+    data: [
+      {
+        name: "Especial Aleanzza - 8 Fatias",
+        description:
+          "Molho de tomate, frango desfiado, cheddar, muçarela, bacon, milho, cebola e orégano.",
+        price: 81.9,
+        imageUrl: "https://example.com/pizza-especial-aleanzza.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Especial Aleanzza - 6 Fatias",
+        description:
+          "Molho de tomate, frango desfiado, cheddar, muçarela, bacon, milho, cebola e orégano.",
+        price: 71.9,
+        imageUrl: "https://example.com/pizza-especial-aleanzza.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Especial Aleanzza - Super Fatia",
+        description:
+          "Molho de tomate, frango desfiado, cheddar, muçarela, bacon, milho, cebola e orégano.",
+        price: 18.9,
+        imageUrl: "https://example.com/pizza-especial-aleanzza.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Frango com Catupiry - 8 Fatias",
+        description:
+          "Molho de tomate, frango desfiado, catupiry, muçarela, milho e orégano.",
+        price: 77.9,
+        imageUrl: "https://example.com/pizza-frango-catupiry.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Frango com Catupiry - 6 Fatias",
+        description:
+          "Molho de tomate, frango desfiado, catupiry, muçarela, milho e orégano.",
+        price: 67.9,
+        imageUrl: "https://example.com/pizza-frango-catupiry.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Frango com Catupiry - Super Fatia",
+        description:
+          "Molho de tomate, frango desfiado, catupiry, muçarela, milho e orégano.",
+        price: 16.9,
+        imageUrl: "https://example.com/pizza-frango-catupiry.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Calabresa - 8 Fatias",
+        description: "Molho de tomate, muçarela, calabresa, cebola e orégano.",
+        price: 77.9,
+        imageUrl: "https://example.com/pizza-calabresa.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Calabresa - 6 Fatias",
+        description: "Molho de tomate, muçarela, calabresa, cebola e orégano.",
+        price: 67.9,
+        imageUrl: "https://example.com/pizza-calabresa.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Calabresa - Super Fatia",
+        description: "Molho de tomate, muçarela, calabresa, cebola e orégano.",
+        price: 16.9,
+        imageUrl: "https://example.com/pizza-calabresa.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "4 Queijos - 8 Fatias",
+        description:
+          "Molho de tomate, muçarela, catupiry, parmesão, provolone e orégano.",
+        price: 85.9,
+        imageUrl: "https://example.com/pizza-4-queijos.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "4 Queijos - 6 Fatias",
+        description:
+          "Molho de tomate, muçarela, catupiry, parmesão, provolone e orégano.",
+        price: 75.9,
+        imageUrl: "https://example.com/pizza-4-queijos.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "4 Queijos - Super Fatia",
+        description:
+          "Molho de tomate, muçarela, catupiry, parmesão, provolone e orégano.",
+        price: 18.9,
+        imageUrl: "https://example.com/pizza-4-queijos.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Costela com Alho Poró - 8 Fatias",
+        description:
+          "Molho de tomate, muçarela, costela, catupiry, alho poró e orégano.",
+        price: 90.9,
+        imageUrl: "https://example.com/pizza-costela-alho-poro.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Costela com Alho Poró - 6 Fatias",
+        description:
+          "Molho de tomate, muçarela, costela, catupiry, alho poró e orégano.",
+        price: 80.9,
+        imageUrl: "https://example.com/pizza-costela-alho-poro.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Costela com Alho Poró - Super Fatia",
+        description:
+          "Molho de tomate, muçarela, costela, catupiry, alho poró e orégano.",
+        price: 18.9,
+        imageUrl: "https://example.com/pizza-costela-alho-poro.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "À Moda da Casa - 8 Fatias",
+        description:
+          "Molho de tomate, frango desfiado, presunto, muçarela, pimentão, cebola, azeitona e orégano.",
+        price: 79.9,
+        imageUrl: "https://example.com/pizza-moda-casa.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "À Moda da Casa - 6 Fatias",
+        description:
+          "Molho de tomate, frango desfiado, presunto, muçarela, pimentão, cebola, azeitona e orégano.",
+        price: 68.9,
+        imageUrl: "https://example.com/pizza-moda-casa.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "À Moda da Casa - Super Fatia",
+        description:
+          "Molho de tomate, frango desfiado, presunto, muçarela, pimentão, cebola, azeitona e orégano.",
+        price: 16.9,
+        imageUrl: "https://example.com/pizza-moda-casa.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Canadense - 8 Fatias",
+        description:
+          "Molho de tomate, muçarela, lombo canadense, catupiry, cebola e orégano.",
+        price: 76.9,
+        imageUrl: "https://example.com/pizza-canadense.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Canadense - 6 Fatias",
+        description:
+          "Molho de tomate, muçarela, lombo canadense, catupiry, cebola e orégano.",
+        price: 67.9,
+        imageUrl: "https://example.com/pizza-canadense.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Canadense - Super Fatia",
+        description:
+          "Molho de tomate, muçarela, lombo canadense, catupiry, cebola e orégano.",
+        price: 16.9,
+        imageUrl: "https://example.com/pizza-canadense.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Bacon em Tiras - 8 Fatias",
+        description: "Molho de tomate, muçarela, bacon em tiras e orégano.",
+        price: 78.9,
+        imageUrl: "https://example.com/pizza-bacon-tiras.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Bacon em Tiras - 6 Fatias",
+        description: "Molho de tomate, muçarela, bacon em tiras e orégano.",
+        price: 68.9,
+        imageUrl: "https://example.com/pizza-bacon-tiras.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Bacon em Tiras - Super Fatia",
+        description: "Molho de tomate, muçarela, bacon em tiras e orégano.",
+        price: 39,
+        imageUrl: "https://example.com/pizza-bacon-tiras.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Queijo e Geleia de Frutas Vermelhas - 8 Fatias",
+        description:
+          "Molho de tomate, deliciosa camada de muçarela, cream cheese, fatias finas de provolone, saborosa geleia de frutas vermelhas e orégano.",
+        price: 89.9,
+        imageUrl: "https://example.com/pizza-bacon-tiras.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Queijo e Geleia de Frutas Vermelhas - 6 Fatias",
+        description:
+          "Molho de tomate, deliciosa camada de muçarela, cream cheese, fatias finas de provolone, saborosa geleia de frutas vermelhas e orégano.",
+        price: 79.9,
+        imageUrl: "https://example.com/pizza-bacon-tiras.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Queijo e Geleia de Frutas Vermelhas - Super Fatia",
+        description:
+          "Molho de tomate, deliciosa camada de muçarela, cream cheese, fatias finas de provolone, saborosa geleia de frutas vermelhas e orégano.",
+        price: 18.9,
+        imageUrl: "https://example.com/pizza-bacon-tiras.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+
+      {
+        name: "Portuguesa - 8 Fatias",
+        description:
+          "Molho de tomate, presunto, deliciosa camada de muçarela, pimentão, tomate fatiado, cebola em anéis, azeitona, ovo e orégano.",
+        price: 78.9,
+        imageUrl: "https://example.com/pizza-bacon-tiras.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Portuguesa - 6 Fatias",
+        description:
+          "Molho de tomate, presunto, deliciosa camada de muçarela, pimentão, tomate fatiado, cebola em anéis, azeitona, ovo e orégano.",
+        price: 68.9,
+        imageUrl: "https://example.com/pizza-bacon-tiras.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Portuguesa - Super Fatia",
+        description:
+          "Molho de tomate, presunto, deliciosa camada de muçarela, pimentão, tomate fatiado, cebola em anéis, azeitona, ovo e orégano.",
+        price: 16.9,
+        imageUrl: "https://example.com/pizza-bacon-tiras.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+
+      {
+        name: "Alcapone - 8 Fatias",
+        description:
+          "Molho de tomate, presunto, deliciosa camada de muçarela, pimentão, tomate fatiado, cebola em anéis, azeitona, ovo e orégano.",
+        price: 83.9,
+        imageUrl: "https://example.com/pizza-bacon-tiras.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alcapone - 6 Fatias",
+        description:
+          "Molho de tomate, presunto, deliciosa camada de muçarela, pimentão, tomate fatiado, cebola em anéis, azeitona, ovo e orégano.",
+        price: 73.9,
+        imageUrl: "https://example.com/pizza-bacon-tiras.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Alcapone - Super Fatia",
+        description:
+          "Molho de tomate, presunto, deliciosa camada de muçarela, pimentão, tomate fatiado, cebola em anéis, azeitona, ovo e orégano.",
+        price: 18.9,
+        imageUrl: "https://example.com/pizza-bacon-tiras.jpg",
+        menuCategoryId: pizzasCategory.id,
+        restaurantId: restaurantId,
+      },
+    ],
+  });
+
+  const bordasRecheadasCategory = await tx.menuCategory.create({
+    data: {
+      name: "Bordas Recheadas",
+      restaurantId: restaurantId,
+    },
+  });
+
+  await tx.product.createMany({
+    data: [
+      {
+        name: "Borda de Catupiry Cremoso - Média",
+        description:
+          "Borda recheada com catupiry cremoso (para pizzas médias).",
+        price: 10.9,
+        imageUrl: "https://example.com/borda-catupiry-media.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Borda de Catupiry Cremoso - Grande",
+        description:
+          "Borda recheada com catupiry cremoso (para pizzas grandes).",
+        price: 12.9,
+        imageUrl: "https://example.com/borda-catupiry-grande.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Borda de Cheddar Cremoso - Média",
+        description: "Borda recheada com cheddar cremoso (para pizzas médias).",
+        price: 10.9,
+        imageUrl: "https://example.com/borda-cheddar-media.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Borda de Cheddar Cremoso - Grande",
+        description:
+          "Borda recheada com cheddar cremoso (para pizzas grandes).",
+        price: 12.9,
+        imageUrl: "https://example.com/borda-cheddar-grande.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Borda de Costela com Catupiry - Média",
+        description:
+          "Borda recheada com costela e catupiry (para pizzas médias).",
+        price: 15.9,
+        imageUrl: "https://example.com/borda-costela-catupiry-media.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Borda de Costela com Catupiry - Grande",
+        description:
+          "Borda recheada com costela e catupiry (para pizzas grandes).",
+        price: 19.9,
+        imageUrl: "https://example.com/borda-costela-catupiry-grande.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Borda de Cream Cheese - Média",
+        description: "Borda recheada com cream cheese (para pizzas médias).",
+        price: 11.9,
+        imageUrl: "https://example.com/borda-cream-cheese-media.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Borda de Cream Cheese - Grande",
+        description: "Borda recheada com cream cheese (para pizzas grandes).",
+        price: 13.9,
+        imageUrl: "https://example.com/borda-cream-cheese-grande.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Borda de Catupiry com Frango - Média",
+        description:
+          "Borda recheada com catupiry e frango (para pizzas médias).",
+        price: 12.9,
+        imageUrl: "https://example.com/borda-catupiry-frango-media.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Borda de Catupiry com Frango - Grande",
+        description:
+          "Borda recheada com catupiry e frango (para pizzas grandes).",
+        price: 14.9,
+        imageUrl: "https://example.com/borda-catupiry-frango-grande.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Borda de Catupiry com Milho - Média",
+        description:
+          "Borda recheada com catupiry e milho (para pizzas médias).",
+        price: 11.9,
+        imageUrl: "https://example.com/borda-catupiry-milho-media.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Borda de Catupiry com Milho - Grande",
+        description:
+          "Borda recheada com catupiry e milho (para pizzas grandes).",
+        price: 13.9,
+        imageUrl: "https://example.com/borda-catupiry-milho-grande.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Borda Metade Catupiry e Metade Cheddar - Média",
+        description:
+          "Borda recheada metade catupiry e metade cheddar (para pizzas médias).",
+        price: 10.9,
+        imageUrl: "https://example.com/borda-metade-catupiry-cheddar-media.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+      {
+        name: "Borda Metade Catupiry e Metade Cheddar - Grande",
+        description:
+          "Borda recheada metade catupiry e metade cheddar (para pizzas grandes).",
+        price: 12.9,
+        imageUrl:
+          "https://example.com/borda-metade-catupiry-cheddar-grande.jpg",
+        menuCategoryId: bordasRecheadasCategory.id,
+        restaurantId: restaurantId,
+      },
+    ],
+  });
+};
+
 const main = async () => {
   await prismaClient.$transaction(
     async (tx: any) => {
@@ -952,6 +1953,10 @@ const main = async () => {
       await seedCombosCategory(tx, restaurant.id);
       await seedArtesanalCategory(tx, restaurant.id);
       await seedDrinksCategory(tx, restaurant.id);
+      const batataRealRestaurant = await seedBatataRealRestaurant(tx);
+      await seedBatataRealCategories(tx, batataRealRestaurant.id);
+      const aleanzzaRestaurant = await seedAleanzzaRestaurant(tx);
+      await seedAleanzzaCategories(tx, aleanzzaRestaurant.id);
     },
     {
       timeout: 30000, // Aumenta o tempo limite para 30 segundos
