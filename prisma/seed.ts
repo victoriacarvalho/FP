@@ -10,7 +10,7 @@ const seedRestaurant = async (tx: any) => {
     data: {
       name: "Food Park Bar",
       slug: "food-park-Bar",
-      description: "O melhor espaço gastronômico da cidade",
+      description: "O Maior complexo de gastronomia da região",
       avatarImageUrl: "https://example.com/foodpark-avatar.jpg",
       coverImageUrl: "https://example.com/foodpark-cover.jpg",
     },
