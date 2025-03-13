@@ -4,17 +4,17 @@ const { PrismaClient } = require("@prisma/client");
 
 const prismaClient = new PrismaClient();
 
-const seedRestaurant = async (tx: any) => {
+const seedBar = async (tx: any) => {
   await tx.restaurant.deleteMany();
   return await tx.restaurant.create({
     data: {
       name: "Food Park Bar",
-      slug: "food-park-Bar",
+      slug: "food-park-bar",
       description: "O Maior complexo de gastronomia da região",
       avatarImageUrl:
         "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9FkR5yrhZqSf1uzk4neBcwvJY3UI0PHaDb9lqEg",
       coverImageUrl:
-        "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9Fkhm5bf1KrUPIM6nFevgykW4bAD8EHzJZ9xs2X",
+        "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9FkWjBra8MVbsyARHKBco8O6kx0MYqptdfea5um",
     },
   });
 };
@@ -22,12 +22,13 @@ const seedRestaurant = async (tx: any) => {
 const seedBatataRealRestaurant = async (tx: any) => {
   return await tx.restaurant.create({
     data: {
-      name: "BATATA REAL",
+      name: "A Batata Real",
       slug: "batata-real",
-      description: "Torres de batata e fritas especiais",
-      avatarImageUrl: "https://example.com/batata-real-avatar.jpg",
+      description: "Realmente fabulosa",
+      avatarImageUrl:
+        "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9FkCEuX1HT0MWxSRv7GZ5euNJOzoIyDk96Hsgnb",
       coverImageUrl:
-        "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9Fkhm5bf1KrUPIM6nFevgykW4bAD8EHzJZ9xs2X",
+        "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9FkWjBra8MVbsyARHKBco8O6kx0MYqptdfea5um",
     },
   });
 };
@@ -36,12 +37,12 @@ const seedAleanzzaRestaurant = async (tx: any) => {
   return await tx.restaurant.create({
     data: {
       name: "Aleanzza",
-      slug: "Aleanzza",
+      slug: "aleanzza",
       description: "Pizzas artesanais e entradinhas deliciosas",
       avatarImageUrl:
         "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9FkBugeISadb2qJzoupaZYNPwrQSRg1GlVejU78",
       coverImageUrl:
-        "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9Fkhm5bf1KrUPIM6nFevgykW4bAD8EHzJZ9xs2X",
+        "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9FkWjBra8MVbsyARHKBco8O6kx0MYqptdfea5um",
     },
   });
 };
@@ -51,9 +52,11 @@ const seedAppassionatoRestaurant = async (tx: any) => {
     data: {
       name: "Appassionato",
       slug: "appassionato",
-      description: "Sobremesas premium e chocolates especiais",
-      avatarImageUrl: "https://example.com/appassionato-avatar.jpg",
-      coverImageUrl: "https://example.com/appassionato-cover.jpg",
+      description: "O sabor da felicidade",
+      avatarImageUrl:
+        "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9FkewyDPPuPTzngDlX2pirm7MLRUEte0shGJjuQ",
+      coverImageUrl:
+        "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9FkWjBra8MVbsyARHKBco8O6kx0MYqptdfea5um",
     },
   });
 };
@@ -64,8 +67,10 @@ const seedArmazemCarneRestaurant = async (tx: any) => {
       name: "Armazém da Carne",
       slug: "armazem-da-carne",
       description: "Carnes premium e pratos típicos gaúchos",
-      avatarImageUrl: "https://example.com/armazem-avatar.jpg",
-      coverImageUrl: "https://example.com/armazem-cover.jpg",
+      avatarImageUrl:
+        "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9FkMf3vDziLQiJoWp4kzjqarBfGFb6YeLUV3gx5",
+      coverImageUrl:
+        "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9FkWjBra8MVbsyARHKBco8O6kx0MYqptdfea5um",
     },
   });
 };
@@ -2413,24 +2418,24 @@ const seedCarnesCategory = async (tx: any, restaurantId: string) => {
 const main = async () => {
   await prismaClient.$transaction(
     async (tx: any) => {
-      const restaurant = await seedRestaurant(tx);
-      await seedRefriCategory(tx, restaurant.id);
-      await seedCervejaCategory(tx, restaurant.id);
-      await seedLongNeckCategory(tx, restaurant.id);
-      await seedDrinksEspeciaisCategory(tx, restaurant.id);
-      await seedSucosCategory(tx, restaurant.id);
-      await seedVinhosCategory(tx, restaurant.id);
-      await seedEspumantesCategory(tx, restaurant.id);
-      await seedShotsCategory(tx, restaurant.id);
-      await seedOutrosCategory(tx, restaurant.id);
-      await seedRefri1LCategory(tx, restaurant.id);
-      await seedSuco1LCategory(tx, restaurant.id);
-      await seedSucoLataCategory(tx, restaurant.id);
-      await seedSucoIntegralCategory(tx, restaurant.id);
-      await seedChoppPrussiaCategory(tx, restaurant.id);
-      await seedCombosCategory(tx, restaurant.id);
-      await seedArtesanalCategory(tx, restaurant.id);
-      await seedDrinksCategory(tx, restaurant.id);
+      const bar = await seedBar(tx);
+      await seedRefriCategory(tx, bar.id);
+      await seedCervejaCategory(tx, bar.id);
+      await seedLongNeckCategory(tx, bar.id);
+      await seedDrinksEspeciaisCategory(tx, bar.id);
+      await seedSucosCategory(tx, bar.id);
+      await seedVinhosCategory(tx, bar.id);
+      await seedEspumantesCategory(tx, bar.id);
+      await seedShotsCategory(tx, bar.id);
+      await seedOutrosCategory(tx, bar.id);
+      await seedRefri1LCategory(tx, bar.id);
+      await seedSuco1LCategory(tx, bar.id);
+      await seedSucoLataCategory(tx, bar.id);
+      await seedSucoIntegralCategory(tx, bar.id);
+      await seedChoppPrussiaCategory(tx, bar.id);
+      await seedCombosCategory(tx, bar.id);
+      await seedArtesanalCategory(tx, bar.id);
+      await seedDrinksCategory(tx, bar.id);
       const batataRealRestaurant = await seedBatataRealRestaurant(tx);
       await seedBatataRealCategories(tx, batataRealRestaurant.id);
       const aleanzzaRestaurant = await seedAleanzzaRestaurant(tx);
