@@ -776,7 +776,7 @@ const seedRefri1LCategory = async (tx: any, restaurantId: string) => {
         description: "Refrigerante Coca-Cola 1L.",
         price: 12.0,
         imageUrl:
-          "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9FkaDrpmg6EcubZPrmxSC2o30YRkNWfFDdUVaBG",
+          "https://ubgvu032x1.ufs.sh/f/6YLRKSAcG9Fk702dxsekErbg6tXPs0faZpWlBF84evSDdCUy",
         menuCategoryId: refri1LCategory.id,
         restaurantId: restaurantId,
       },
