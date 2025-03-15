@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { FormatCurrency } from '@/helpers/format-currency'
 
 import { CartContext } from '../../contexts/cart'
-import CartSheet from './cart-sheet'
+import CartSheet from '../../components/cart-sheet'
 
 interface ProductDetailsProps {
   product: Prisma.ProductGetPayload<{
