@@ -1,31 +1,33 @@
-import "./globals.css";
+import './globals.css'
 
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import type { Metadata } from 'next'
+import { Poppins } from 'next/font/google'
 
-import { CartProvider } from "./[slug]/menu/contexts/cart";
+import { Toaster } from '@/components/ui/sonner'
+
+import { CartProvider } from './[slug]/menu/contexts/cart'
 
 const poppins = Poppins({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
-  title: "Food Park",
-  description: "O Maior complexo de gastronomia da região",
-};
+  title: 'Food Park',
+  description: 'O Maior complexo de gastronomia da região',
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className={`${poppins.className} antialiased`}>
-        <CartProvider>
-        {children}
-          </CartProvider></body>
+        <CartProvider>{children}</CartProvider>
+        <Toaster />
+      </body>
     </html>
-  );
+  )
 }

@@ -57,6 +57,8 @@ model Order {
   consumptionMethod ConsumptionMethod
   createdAt         DateTime          @default(now())
   updatedAt         DateTime          @updatedAt
+  costumerName      String
+  costumerCpf       String
 }
 
 model OrderProducts {
