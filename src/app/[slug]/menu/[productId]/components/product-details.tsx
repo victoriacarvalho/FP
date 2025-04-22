@@ -7,8 +7,8 @@ import { useContext, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { FormatCurrency } from '@/helpers/format-currency'
 
-import { CartContext } from '../../contexts/cart'
 import CartSheet from '../../components/cart-sheet'
+import { CartContext } from '../../contexts/cart'
 
 interface ProductDetailsProps {
   product: Prisma.ProductGetPayload<{
