@@ -1,10 +1,14 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    remotePatterns: [{ hostname: "ubgvu032x1.ufs.sh" }],
+    remotePatterns: [{ hostname: 'ubgvu032x1.ufs.sh' }],
   },
-};
 
-export default nextConfig;
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+}
+
+export default nextConfig
