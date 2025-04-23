@@ -22,7 +22,7 @@ const OdersPage = async ({ searchParams }: OdersPageProps) => {
     },
 
     where: {
-      costumerCpf: removeCpfPunctuation(cpf),
+      custumerCpf: removeCpfPunctuation(cpf),
     },
     include: {
       restaurant: {
